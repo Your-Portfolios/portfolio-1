@@ -1,5 +1,6 @@
 "use client";
 
+import { ASSISTANT_PROMPTS, ASSISTANT_INTRO, PERSONAL_INFO } from "@/data/portfolioData";
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { BrainCircuit, X, Send, Bot, User, FileText, RefreshCw } from "lucide-react";
@@ -26,7 +27,7 @@ export const AIChatModal: React.FC<AIChatModalProps> = ({
   const [messages, setMessages] = useState<Message[]>([
     {
       sender: "ai",
-      text: `Hello! I'm Abhishek Kumar Singh's AI Portfolio Assistant. I can answer questions about his 4+ years of software development experience, Micro-Frontend & Monorepo architectures, or product projects like Swift Security, MoneyMax, PlanMate, ChatterBox, and Sriscart. How can I help you today?`,
+      text: ASSISTANT_INTRO,
     },
   ]);
   const [loading, setLoading] = useState(false);
@@ -34,13 +35,7 @@ export const AIChatModal: React.FC<AIChatModalProps> = ({
   const inputRef = useRef<HTMLInputElement>(null);
   const hasTriggeredInitial = useRef(false);
 
-  const quickPrompts = [
-    "Overview of Abhishek's 4+ years experience",
-    "How does his Micro-Frontend architecture work?",
-    "Tell me about Sriscart & ChatterBox",
-    "What is MoneyMax's dual-portal system?",
-    "Why hire Abhishek for Software Developer roles?",
-  ];
+  const quickPrompts = ASSISTANT_PROMPTS;
 
   const handleSend = useCallback(async (promptText?: string) => {
     const textToSend = promptText || inputVal;
@@ -66,14 +61,14 @@ export const AIChatModal: React.FC<AIChatModalProps> = ({
       const data = await res.json();
       setMessages((prev) => [
         ...prev,
-        { sender: "ai", text: data.reply || "I am glad to provide any details about Abhishek's projects and experience!" },
+        { sender: "ai", text: data.reply || "I am glad to provide any details about Awais's projects and experience!" },
       ]);
     } catch {
       setMessages((prev) => [
         ...prev,
         {
           sender: "ai",
-          text: "Abhishek Kumar Singh is a Software Developer with 4+ years of experience specializing in ReactJS, NextJS 14+, Webpack 5 Module Federation, and Nx/Turborepo monorepos. Feel free to ask about any specific project!",
+          text: PERSONAL_INFO.summary,
         },
       ]);
     } finally {
@@ -122,7 +117,7 @@ export const AIChatModal: React.FC<AIChatModalProps> = ({
               </div>
               <div>
                 <h3 className="font-bold text-white text-sm sm:text-base flex items-center gap-1.5">
-                  Ask Abhishek AI
+                  Ask Awais AI
                   <BrainCircuit className="w-3.5 h-3.5 text-cyan-400" />
                 </h3>
                 <span className="text-[10px] font-mono text-cyan-400 block">
@@ -216,7 +211,7 @@ export const AIChatModal: React.FC<AIChatModalProps> = ({
               type="text"
               value={inputVal}
               onChange={(e) => setInputVal(e.target.value)}
-              placeholder="Ask anything about Abhishek's skills, projects, or architecture..."
+              placeholder="Ask anything about Awais's skills, projects, or architecture..."
               className="flex-1 px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-white text-xs sm:text-sm focus:outline-none focus:border-cyan-500 placeholder-gray-500"
             />
             <button

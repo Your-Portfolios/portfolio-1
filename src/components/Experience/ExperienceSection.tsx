@@ -27,7 +27,7 @@ export const ExperienceSection: React.FC = () => {
             <AnimatedText text="Work Experience & Engineering Impact" />
           </h2>
           <p className="text-gray-400 text-base sm:text-lg">
-            Over 4+ years of hands-on experience building, architecting, and optimizing high-scale web applications for product teams.
+            Full-stack development for client and internal products, from responsive interfaces to REST APIs and database services.
           </p>
         </div>
 

@@ -7,13 +7,15 @@ import { GithubIcon } from "@/components/Icons/SocialIcons";
 import { PROJECTS, Project } from "@/data/portfolioData";
 import { ProjectModal } from "./ProjectModal";
 import { AnimatedText } from "@/components/Animation/AnimatedText";
+import { useHydrated } from "@/hooks/useHydrated";
 
 export const ProjectsSection: React.FC = () => {
+  const hydrated = useHydrated();
   const [activeCategory, setActiveCategory] = useState<"enterprise" | "personal">("enterprise");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const categories = [
-    { id: "enterprise", label: "Enterprise Solutions" },
+    { id: "enterprise", label: "Client Projects" },
     { id: "personal", label: "Personal Showcase" },
   ] as const;
 
@@ -35,7 +37,7 @@ export const ProjectsSection: React.FC = () => {
             <AnimatedText text="Featured Projects & Product Systems" />
           </h2>
           <p className="text-gray-400 text-base sm:text-lg">
-            Explore product platforms engineered for multi-tenant SaaS, Singapore FinTech pawnbroking, EdTech real-time classrooms, and custom personal applications.
+            Selected client deliveries from my resume and personal projects from my public GitHub repositories.
           </p>
         </div>
 
@@ -48,6 +50,7 @@ export const ProjectsSection: React.FC = () => {
               return (
                 <button
                   key={cat.id}
+                  disabled={!hydrated}
                   onClick={() => setActiveCategory(cat.id)}
                   className={`relative px-5 sm:px-7 py-2.5 rounded-xl text-xs sm:text-sm font-mono transition-colors duration-200 cursor-pointer ${
                     isActive
@@ -88,7 +91,7 @@ export const ProjectsSection: React.FC = () => {
                 <div className={`h-40 rounded-2xl bg-gradient-to-br ${project.imageBg} p-5 border border-slate-800/80 flex flex-col justify-between mb-5 relative overflow-hidden group-hover:border-cyan-500/40 transition-colors`}>
                   <div className="flex items-center justify-between z-10">
                     <span className="px-2.5 py-0.5 rounded-full bg-slate-950/85 text-[10px] font-mono text-cyan-300 border border-cyan-500/40 uppercase tracking-wider font-bold">
-                      {project.category === "personal" ? "Personal Showcase" : "Enterprise SaaS"}
+                      {project.category === "personal" ? "Personal Showcase" : "Client Project"}
                     </span>
                     <div className="w-8.5 h-8.5 rounded-full bg-slate-950/90 border border-slate-700 flex items-center justify-center text-gray-300 group-hover:text-cyan-400 group-hover:scale-115 group-hover:border-cyan-500/50 transition-all shadow-md">
                       <ArrowUpRight className="w-4 h-4" />
@@ -157,7 +160,7 @@ export const ProjectsSection: React.FC = () => {
                           title="Open Live Application"
                         >
                           <ExternalLink className="w-3.5 h-3.5" />
-                          <span>{project.id === "swift-security" ? "Concentric.ai" : "Live App"}</span>
+                          <span>{"Live App"}</span>
                         </a>
                       )}
                       {project.githubUrl && (

@@ -1,5 +1,6 @@
 "use client";
 
+import { PERSONAL_INFO } from "@/data/portfolioData";
 import React, { useState, useEffect } from "react";
 import { FileText, Menu, X } from "lucide-react";
 
@@ -14,6 +15,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
   const [activeSection, setActiveSection] = useState("hero");
 
   const navLinks = [
+    { name: "About", href: "#about" },
     { name: "Experience", href: "#experience" },
     { name: "Architecture", href: "#architecture" },
     { name: "Projects", href: "#projects" },
@@ -25,7 +27,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
 
-      const sectionIds = ["hero", "experience", "architecture", "projects", "skills", "contact"];
+      const sectionIds = ["hero", "about", "experience", "architecture", "projects", "skills", "contact"];
       const scrollPosition = window.scrollY + 180;
 
       for (let i = sectionIds.length - 1; i >= 0; i--) {
@@ -129,15 +131,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
 
             {/* Code Brackets & Initials aligning with project dual gradient */}
             <span className="text-cyan-400 font-bold">&lt;</span>
-            <span className="text-white font-black tracking-tight mx-0.5 group-hover:text-cyan-200 transition-colors">AS</span>
+            <span className="text-white font-black tracking-tight mx-0.5 group-hover:text-cyan-200 transition-colors">{PERSONAL_INFO.initials}</span>
             <span className="text-fuchsia-400 font-bold">/&gt;</span>
           </div>
           <div className="flex flex-col">
             <span className="font-extrabold text-xs sm:text-sm tracking-wide text-gray-100 group-hover:text-cyan-400 transition-colors whitespace-nowrap">
-              ABHISHEK KUMAR SINGH
+              {PERSONAL_INFO.name.toUpperCase()}
             </span>
             <span className="text-[10px] text-cyan-400 font-mono tracking-wider uppercase font-semibold">
-              Software Developer
+              Software Engineer
             </span>
           </div>
         </a>
@@ -170,7 +172,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
           <button
             onClick={onOpenAI}
             className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-cyan-400 hover:text-cyan-300 border border-cyan-500/40 text-xs font-mono transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/20 active:scale-95 cursor-pointer"
-            title="Ask Abhishek AI Assistant"
+            title="Ask Awais AI Assistant"
           >
             <Bot className="w-3.5 h-3.5" />
             <span>Ask AI</span>
@@ -228,7 +230,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
             className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 text-cyan-400 border border-cyan-500/30 text-xs font-mono"
           >
             <Bot className="w-4 h-4" />
-            <span>Ask Abhishek AI Assistant</span>
+            <span>Ask Awais AI Assistant</span>
           </button>
           */}
           <button

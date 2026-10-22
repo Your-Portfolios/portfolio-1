@@ -47,7 +47,7 @@
     fill="none"
   />
 
-  <!-- High-Contrast Monogram: AS (Crisp White) -->
+  <!-- High-Contrast Monogram: AA (Crisp White) -->
   <text
     x="31"
     y="38.5"
@@ -57,7 +57,7 @@
     font-size="17"
     letter-spacing="-0.5px"
     fill="#ffffff"
-  >AS</text>
+  >AA</text>
 
   <!-- Geometric Code Glyphs: Purple / and > -->
   <line

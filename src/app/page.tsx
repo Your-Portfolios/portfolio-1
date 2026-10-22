@@ -3,6 +3,7 @@
 import React, { useState, useEffect, Suspense } from "react";
 import dynamic from "next/dynamic";
 import { Navbar } from "@/components/Navigation/Navbar";
+import { AboutSection } from "@/components/About/AboutSection";
 import { HeroSection } from "@/components/Hero/HeroSection";
 import { ImpactStatsSection } from "@/components/Stats/ImpactStatsSection";
 import { Footer } from "@/components/Footer/Footer";
@@ -143,6 +144,7 @@ export default function Home() {
 
       {/* 1. Instant Hero — eagerly loaded, zero dynamic imports in critical path */}
       <HeroSection />
+      <AboutSection />
 
       {/* 2. Impact Stats */}
       <ImpactStatsSection />

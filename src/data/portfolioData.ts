@@ -1,7 +1,7 @@
 export interface Project {
   id: string;
   title: string;
-  category: 'mfe' | 'enterprise' | 'realtime' | 'personal';
+  category: 'enterprise' | 'personal';
   subtitle: string;
   description: string;
   longDescription: string;
@@ -38,384 +38,378 @@ export interface SkillCategory {
   skills: SkillItem[];
 }
 
+// Primary source: Awais_Ali_Software_Engineer_CV.pdf. GitHub supplements personal projects.
 export const PERSONAL_INFO = {
-  name: "Abhishek Kumar Singh",
-  title: "Software Developer | ReactJS, NextJS, Node.js & Web Systems",
-  subheading: "4+ Years Experience | ReactJS, NextJS 14+, Node.js & Micro-Frontend Systems",
-  location: "Kolkata, India",
-  email: "abhisheksingh552000@gmail.com",
-  linkedin: "https://linkedin.com/in/abhishek-kumar-singh-a0a306169",
-  github: "https://github.com/Abhi552000",
-  resumePdf: "/Abhishek-Kumar-Singh-Resume.pdf",
-  resumeDocx: "/Abhishek-Kumar-Singh-Resume.docx",
-  summary: "Hi, I'm Abhishek — a Software Developer with 4+ years of experience building modern web applications. I specialize in React, Next.js 14, Node.js, and TypeScript, with a dedicated focus on building clean Micro-Frontend systems (Webpack 5 Module Federation), unified Monorepos (Nx & Turborepo), and scalable REST API integrations.",
-  stats: [
-    { label: "Years Professional Experience", value: "4+", accent: "from-cyan-400 to-blue-500" },
-    { label: "Code Duplication Eliminated", value: "40%", accent: "from-emerald-400 to-teal-400" },
-    { label: "Sub-2.0s Core Web Vitals (LCP)", value: "<2.0s", accent: "from-purple-400 to-indigo-400" },
-    { label: "Feature Delivery Accelerated", value: "30%", accent: "from-amber-400 to-orange-400" },
+  "name": "Awais Ali",
+  "firstName": "Awais",
+  "lastName": "Ali",
+  "initials": "AA",
+  "title": "Software Engineer | Full Stack Developer",
+  "subheading": "React, Next.js, React Native & Node.js",
+  "location": "Lahore, Pakistan",
+  "timezone": "UTC+05:00",
+  "email": "awais6javaid@gmail.com",
+  "phone": "+92 335 6620397",
+  "linkedin": "https://linkedin.com/in/awaisali-exe1",
+  "github": "https://github.com/awais-sufi",
+  "resumePdf": "/Awais_Ali_Software_Engineer_CV.pdf",
+  "summary": "I'm Awais, a Full Stack Software Engineer with 2+ years of experience building production web applications. I work with React, Next.js, Node.js, NestJS, and PostgreSQL to deliver responsive interfaces, REST APIs, and authentication systems.",
+  "roles": [
+    "Full Stack Software Engineer",
+    "React & Next.js Development",
+    "React Native Applications",
+    "Node.js & NestJS APIs"
   ],
-  education: {
-    degree: "B.Tech in Electronics & Communication Engineering",
-    institution: "MCKV Institute of Engineering, Kolkata",
-    period: "2018 – 2022",
-    cgpa: "8.3 / 10",
+  "stats": [
+    {
+      "label": "Full-stack applications contributed to",
+      "value": "5+",
+      "accent": "from-cyan-400 to-blue-500"
+    },
+    {
+      "label": "Dashboards & onboarding systems",
+      "value": "3+",
+      "accent": "from-emerald-400 to-teal-400"
+    },
+    {
+      "label": "REST API endpoints implemented",
+      "value": "15+",
+      "accent": "from-purple-400 to-indigo-400"
+    },
+    {
+      "label": "Reusable components for Zaz Mart",
+      "value": "15+",
+      "accent": "from-amber-400 to-orange-400"
+    }
+  ],
+  "education": {
+    "degree": "BS in Software Engineering",
+    "institution": "Riphah International University",
+    "period": "Oct 2020 - Nov 2024"
   }
 };
 
 export const WORK_EXPERIENCES: Experience[] = [
   {
-    id: "exp-1",
-    role: "Software Developer",
-    company: "NextZen Minds",
-    period: "Oct 2025 – Present",
-    location: "Kolkata, India",
-    isCurrent: true,
-    summary: "Driving web development and architecture using Next.js 14 App Router, Nx Monorepo, and Turborepo across core product applications.",
-    achievements: [
-      "Architected an Nx Monorepo unifying shared component libraries, utility hooks, and ESLint/Prettier configs across multiple applications, reducing code duplication by ~40%.",
-      "Configured Turborepo with pnpm workspaces to streamline builds across apps, accelerating pipelines through smart remote caching.",
-      "Driving web development initiatives in Next.js 14 (App Router) with Tailwind CSS, achieving sub-2s Largest Contentful Paint (LCP) performance.",
-      "Established Git branching strategies, PR templates, and collaborative code review standards adopted team-wide."
+    "id": "exeonic",
+    "role": "Software Engineer",
+    "company": "Exeonic",
+    "period": "Jan 2025 - Present",
+    "location": "Pakistan",
+    "isCurrent": true,
+    "summary": "Build full-stack web applications for live client and internal projects, collaborating across Agile teams.",
+    "achievements": [
+      "Developed and contributed to 5+ full-stack web applications using the MERN stack, Next.js, and NestJS.",
+      "Built 3+ responsive dashboards and onboarding systems, reducing manual steps in internal workflows.",
+      "Implemented JWT authentication flows and 15+ REST API endpoints for CRUD operations and client-server integration.",
+      "Integrated Supabase and PostgreSQL for database and backend services.",
+      "Collaborated using Git, GitHub/GitLab, Jira, and Agile workflows."
     ],
-    skills: ["Next.js 14", "Nx Monorepo", "Turborepo", "Tailwind CSS", "TypeScript", "pnpm Workspaces"],
-    impactMetric: "-40% Code Duplication & Sub-2s LCP"
-  },
-  {
-    id: "exp-2",
-    role: "Software Developer",
-    company: "NextZen Minds",
-    period: "Jun 2024 – Oct 2025",
-    location: "Kolkata, India",
-    summary: "Pioneered micro-frontend module federation architecture and built reusable React design component libraries & API integrations.",
-    achievements: [
-      "Built a Micro-Frontend system using Webpack 5 Module Federation, enabling independent deployment of product modules with zero inter-team dependencies.",
-      "Engineered a reusable React component library shared across 3 product modules, cutting feature development time by ~30%.",
-      "Integrated complex REST APIs with React Query for client-side caching, background refetching, and fluid UI updates."
+    "skills": [
+      "React",
+      "Next.js",
+      "Node.js",
+      "NestJS",
+      "Express.js",
+      "MongoDB",
+      "PostgreSQL",
+      "Supabase"
     ],
-    skills: ["Webpack 5 Module Federation", "ReactJS", "React Query", "Micro-Frontends", "Design Systems"],
-    impactMetric: "-30% Development Time per Module"
-  },
-  {
-    id: "exp-3",
-    role: "Program Analyst",
-    company: "CBNITS",
-    period: "Aug 2023 – May 2024",
-    location: "Kolkata, India",
-    summary: "Engineered real-time analytics visualizers and led hospital management module delivery in client-facing Agile teams.",
-    achievements: [
-      "Built data-rich analytics dashboards using Highcharts and Redux Toolkit for real-time data monitoring.",
-      "Guided junior engineers on component architecture, state management patterns, and code quality standards.",
-      "Worked directly with enterprise clients to gather requirements and delivered the core hospital management module on schedule."
-    ],
-    skills: ["Highcharts", "Redux Toolkit", "ReactJS", "Mentorship", "Client Operations"],
-    impactMetric: "On-Time Delivery of Hospital Module"
-  },
-  {
-    id: "exp-4",
-    role: "Junior Programmer",
-    company: "CBNITS",
-    period: "Jul 2022 – Jul 2023",
-    location: "Kolkata, India",
-    summary: "Developed real-time communication tools, backend services, and robotic process automation workflows.",
-    achievements: [
-      "Developed a real-time messaging feature using Socket.IO integrated with Node.js backend services and MongoDB.",
-      "Contributed to multiple web modules across Agile sprint teams.",
-      "Automated business workflows using SAP iRPA (Intelligent Robotic Process Automation)."
-    ],
-    skills: ["Socket.IO", "Node.js", "Express.js", "MongoDB", "ReactJS", "Agile Workflows"],
-    impactMetric: "Real-time Socket Engine & Workflow Automation"
+    "impactMetric": "5+ applications / 3+ dashboards / 15+ endpoints"
   }
 ];
 
 export const PROJECTS: Project[] = [
-  // Professional Enterprise & MFE
   {
-    id: "moneymax",
-    title: "MoneyMax",
-    category: "enterprise",
-    subtitle: "Pawnbroking & Retail Finance Platform (Singapore & Malaysia)",
-    description: "Enterprise pawn-broking & retail platform featuring dual-scope RBAC role-based authentication, IoT peripheral middleware (scales, MyKad, biometrics), MAS & Bank Negara compliance, and multi-tenant financial governance.",
-    longDescription: "MoneyMax Retail Frontend is an enterprise pawnbroking, retail operations, and administrative platform for Singapore (S$) and Malaysia (RM). Engineered with enterprise Role-Based Access Control (RBAC) and role-based login authentication to separate branch counter tellers from HQ governance, compliance, and auction management. Integrates USB/serial IoT hardware via WebSocket daemon (digital precision scales, MyKad card readers, fingerprint biometrics, RFID tag scanners), multi-tenant country domain detection, dual-scope permission matrices (HO vs Branch), Datadog RUM monitoring, digital signature captures, and automated electronic invoicing.",
-    role: "Software Developer",
-    impactMetrics: [
-      "RBAC Role-Based Access Control & Auth",
-      "IoT Scale, MyKad & Biometric Middleware",
-      "Singapore S$ & Malaysia RM Multi-Tenant",
-      "MAS & Bank Negara AML/CFT Compliance"
+    "id": "zaz-mart",
+    "title": "Zaz Mart",
+    "category": "enterprise",
+    "subtitle": "Client e-commerce store",
+    "description": "Developed and deployed a client e-commerce store with reusable UI components and responsive product browsing across mobile, tablet, and desktop.",
+    "longDescription": "Developed and deployed a client e-commerce store with reusable UI components and responsive product browsing across mobile, tablet, and desktop.",
+    "role": "Full Stack Developer",
+    "impactMetrics": [
+      "15+ reusable UI components",
+      "Production client delivery"
     ],
-    techStack: [
-      "React 18.3",
-      "TypeScript 5.8",
-      "Webpack 5",
-      "Ant Design 5.26",
-      "TailwindCSS 3.3",
-      "Zustand 5",
-      "React Router 6.30",
-      "Datadog RUM",
-      "WebSockets IoT"
-    ],
-    architectureHighlights: [
-      "Granular RBAC role-based authentication separating branch operations and executive compliance governance",
-      "IoT device middleware (useDeviceStore) connecting WebSockets to USB precision scales, MyKad identity card readers, & fingerprint biometrics",
-      "Dual-scope permission matrix (accessControlHO vs accessControlRetail) with ROUTE_ACCESS_MAP route guards and dynamic menu filtering",
-      "Regulatory CDD/ECDD compliance modules meeting MAS (Singapore) & Bank Negara Malaysia AML/CFT governance standards",
-      "Hybrid kiosk & WebView container bridge integration (useHandleReactNativeMessage) for React Native mobile deployment"
-    ],
-    featured: true,
-    imageBg: "from-amber-950 via-yellow-900 to-slate-950",
-    liveUrl: "https://moneymax.com.sg/"
-  },
-  {
-    id: "ezhealth",
-    title: "eZHealth",
-    category: "enterprise",
-    subtitle: "Teleconsultation & Healthcare Platform",
-    description: "Healthcare platform for online doctor appointments, teleconsultation, and COVID-19 wellness package bookings with Next.js SSR.",
-    longDescription: "Provides patients with seamless access to medical consultation booking, medical records, and digital payment receipts with high search engine visibility.",
-    role: "Software Developer",
-    impactMetrics: ["Next.js SSR for 95+ Lighthouse SEO score", "HIPAA-compliant UI workflows", "Stripe payment integration"],
-    techStack: ["ReactJS", "NextJS", "Material UI", "Stripe", "SSR Engine"],
-    architectureHighlights: [
-      "Server-side rendering (SSR) for dynamic doctor directory SEO",
-      "Responsive appointment calendar scheduler component",
-      "Secure end-to-end appointment payment flow"
-    ],
-    featured: true,
-    imageBg: "from-teal-950 via-emerald-900 to-slate-950",
-    liveUrl: "https://www.ezhealthtrack.com/"
-  },
-  {
-    id: "swift-security",
-    title: "Swift Security",
-    category: "mfe",
-    subtitle: "Cloud Security SaaS Platform (Now Acquired by Concentric AI)",
-    description: "Multi-tenant cloud security SaaS platform with independent micro-frontend policy engine modules and role-based governance. (Now acquired by Concentric AI — https://concentric.ai/).",
-    longDescription: "Swift Security provides enterprise teams with unified cloud protection policy governance (now acquired by Concentric AI — https://concentric.ai/). Built on Webpack 5 Module Federation, individual security modules can be dynamically updated and deployed without full application rebuilds.",
-    role: "Software Developer",
-    impactMetrics: ["Zero-downtime micro-frontend updates", "Granular RBAC access governance", "Multi-tenant isolation UI"],
-    techStack: ["ReactJS", "Redux Toolkit", "Ant Design", "Webpack 5 Module Federation", "TypeScript"],
-    architectureHighlights: [
-      "Dynamic remote module loading at runtime via Module Federation Container",
-      "Shared Redux global auth slice with isolated state per module",
-      "Role-based UI access control (RBAC) directive components"
-    ],
-    featured: true,
-    imageBg: "from-cyan-900 via-blue-950 to-slate-900",
-    liveUrl: "https://concentric.ai/"
-  },
-  {
-    id: "bidscout",
-    title: "Bidscout",
-    category: "enterprise",
-    subtitle: "Procurement & Vendor Management Platform",
-    description: "Enterprise procurement tool with certificate management, vendor registration workflows, and third-party buyer sync.",
-    longDescription: "Streamlines vendor onboarding, compliance certificate validation, and buyer contact synchronization for enterprise procurement teams.",
-    role: "Software Developer",
-    impactMetrics: ["Automated compliance checks", "Third-party buyer API syncing", "Role-based document viewer"],
-    techStack: ["ReactJS", "Ant Design", "REST APIs", "Formik", "TypeScript"],
-    architectureHighlights: [
-      "Modular multi-step dynamic registration form builder",
-      "Automated document validation and upload progress handlers",
-      "Optimized data grid filtering for 10,000+ vendor directory records"
-    ],
-    featured: false,
-    imageBg: "from-indigo-950 via-slate-900 to-cyan-950"
-  },
-  {
-    id: "connectbud",
-    title: "ConnectBud",
-    category: "realtime",
-    subtitle: "EdTech Gamified Interactive Learning Platform",
-    description: "Real-time interactive virtual classroom platform with live whiteboards, instant chat, and integrated Stripe subscriptions.",
-    longDescription: "ConnectBud enables tutors and students to interact in dynamic virtual classrooms with low-latency event broadcasting and automated billing.",
-    role: "Software Developer",
-    impactMetrics: ["Sub-100ms real-time event latency", "Stripe Checkout integration", "Responsive mobile-first classroom UI"],
-    techStack: ["ReactJS", "Material UI", "Socket.IO", "Stripe API", "Node.js"],
-    architectureHighlights: [
-      "Bi-directional WebSocket event channels for classroom whiteboard sync",
-      "Modular UI components designed for rapid feature releases",
-      "Stripe payment gateway integration with webhooks for plan upgrades"
-    ],
-    featured: false,
-    imageBg: "from-purple-950 via-violet-900 to-slate-950",
-    liveUrl: "https://www.connectbud.com/"
-  },
-
-  // Personal Projects (Explicitly requested by user)
-  {
-    id: "sriscart",
-    title: "Sriscart",
-    category: "personal",
-    subtitle: "Real-Time Express Grocery & Delivery Platform",
-    description: "Express grocery delivery web application featuring dynamic store hub radius boundary checks, Leaflet.js live rider tracking, dual-token JWT auth, 81.7% Vite bundle reduction, and Web Audio API spin wheel.",
-    longDescription: "SrisCart is a high-performance express grocery delivery platform. It enforces dynamic store hub radius range checks using Leaflet.js & OpenStreetMap with draggable pin geolocation validation, features a Rider Panel with real-time transit route simulation, database-synced live buyer order tracking (3s polling), dual-token auth (15m access + 7d refresh) with Axios silent rotation interceptors, 81.7% Vite bundle size reduction (682kB to 125kB), Web Audio API synthesized loyalty spin wheel, AI shopping assistant, and Mongoose query indexing.",
-    role: "Creator & Software Developer",
-    impactMetrics: [
-      "Dynamic store hub radius geolocation check",
-      "81.7% JS bundle reduction (125kB)",
-      "Leaflet.js + OSM live rider tracking",
-      "Dual-token JWT auth with Axios refresh"
-    ],
-    techStack: [
-      "React (TypeScript)",
-      "Vite",
-      "Leaflet.js & OSM",
-      "Node.js",
-      "Express",
-      "MongoDB & Mongoose",
-      "Redux Toolkit",
+    "techStack": [
+      "Next.js",
+      "NestJS",
       "Tailwind CSS",
-      "Web Audio API"
+      "PostgreSQL"
     ],
-    architectureHighlights: [
-      "Leaflet.js store hub radius circle & draggable geolocation pin validation for SLA delivery SLA bounds",
-      "Dual-token auth flow (15m access + 7d refresh) with Axios 401 interceptor silent rotation",
-      "81.7% primary JS bundle size reduction (682kB -> 125kB) with Vite dynamic lazy imports",
-      "Live database-synchronized rider tracking engine with 3s polling & street transit simulation",
-      "Web Audio API synthesized oscillator tones for gamified HTML5 canvas loyalty spin wheel",
-      "AI Shopping Assistant for dynamic catalog search, recommendations & direct cart insertions"
+    "architectureHighlights": [
+      "Reusable UI components for consistent product presentation.",
+      "Responsive product navigation across screen sizes."
     ],
-    liveUrl: "https://sris-cart.vercel.app/",
-    githubUrl: "https://github.com/Abhi552000/sris-cart",
-    featured: true,
-    imageBg: "from-emerald-950 via-teal-900 to-slate-950"
+    "featured": true,
+    "imageBg": "from-cyan-900 via-blue-950 to-slate-900",
+    "liveUrl": "https://zazpk.com/"
   },
   {
-    id: "planmate",
-    title: "PlanMate",
-    category: "personal",
-    subtitle: "Enterprise Agile Scrum & Project Management Platform",
-    description: "Full-stack Agile Scrum command center with interactive Kanban boards, sprint burndown analytics (Recharts), task dependencies, rich comments with @mentions, and multi-tenant RBAC.",
-    longDescription: "PlanMate is a full-stack Agile Scrum management platform engineered with React 19, TypeScript, and Node.js/Express 5. It serves as a digital command center featuring interactive multi-column Kanban pipelines, sprint backlog planning, epic tracking, burndown analytics charts (Recharts), task dependency linking (blocks, relates to), activity audit history, rich comments with @user mention notifications, and multi-tenant organization role management.",
-    role: "Creator & Software Developer",
-    impactMetrics: [
-      "Interactive Kanban & Sprint Burndown Analytics",
-      "Multi-tenant RBAC Organization Management",
-      "Task Dependencies & Rich @Mention Comments",
-      "React 19 + TypeScript + Node.js REST API"
+    "id": "asim-textile",
+    "title": "Asim Textile",
+    "category": "enterprise",
+    "subtitle": "CMS-managed business website",
+    "description": "Built a responsive business website with company, product, and contact sections. Integrated Payload CMS so the client can independently update products and business information.",
+    "longDescription": "Built a responsive business website with company, product, and contact sections. Integrated Payload CMS so the client can independently update products and business information.",
+    "role": "Full Stack Developer",
+    "impactMetrics": [
+      "5+ website sections",
+      "Client-managed content"
     ],
-    techStack: [
-      "React 19 (TypeScript)",
-      "Vite 6",
-      "Redux Toolkit 2",
-      "Node.js & Express 5",
-      "MongoDB & Mongoose 8",
-      "Recharts 3",
-      "Tailwind CSS 4",
-      "React Router 7"
+    "techStack": [
+      "Next.js",
+      "Payload CMS",
+      "Tailwind CSS",
+      "SQLite"
     ],
-    architectureHighlights: [
-      "Decoupled React 19 SPA + Node.js Express 5 REST API with centralized service layer pattern",
-      "Multi-column Kanban board with real-time filters by assignee, priority, epic, and search keyword",
-      "Sprint lifecycle management with soft-close state preservation for burndown velocity analytics",
-      "Task lifecycle with estimation worklogs, subtask drills, activity audit logs, and @mention comment triggers",
-      "Multi-tenant organization RBAC hierarchy (system-admin, org-admin, member) with custom status workflows"
+    "architectureHighlights": [
+      "Client-managed products and business content through Payload CMS.",
+      "Responsive layouts for desktop, tablet, and mobile."
     ],
-    liveUrl: "https://plan-mate-eight.vercel.app/",
-    githubUrl: "https://github.com/Abhi552000/PlanMate",
-    featured: true,
-    imageBg: "from-indigo-950 via-purple-900 to-slate-950"
+    "featured": true,
+    "imageBg": "from-indigo-950 via-purple-900 to-slate-950",
+    "liveUrl": "https://asimtextile.com/"
   },
   {
-    id: "chatterbox",
-    title: "ChatterBox",
-    category: "personal",
-    subtitle: "Full-Stack Real-Time Chat & Messaging Ecosystem",
-    description: "Cross-platform messaging ecosystem with Web (React 19, Vite 6, DaisyUI) and Mobile (React Native, Expo SDK 54, TypeScript), Socket.IO v4.8 real-time engine, 6-digit Email OTP auth, and Zustand state.",
-    longDescription: "ChatterBox is an enterprise-grade cross-platform real-time messaging application engineered for Web (React 19 + Vite 6 + Tailwind CSS + DaisyUI) and Mobile (React Native + Expo Router SDK 54 + TypeScript 5.9). Powered by Node.js, Express 5, MongoDB, and Socket.IO v4.8, it features instant bidirectional message relays, live online presence tracking, typing indicators, read receipts (messageSeen status), 6-digit Email OTP verification via Nodemailer, HTTP-Only JWT cookie sessions, and Zustand global state management.",
-    role: "Creator & Software Developer",
-    impactMetrics: [
-      "Cross-platform Web & Expo SDK 54 Mobile",
-      "Socket.IO real-time presence & read receipts",
-      "6-digit Email OTP + JWT auth security",
-      "React 19 + Vite 6 + Zustand + Node.js"
+    "id": "authentication",
+    "title": "Authentication Platform",
+    "category": "personal",
+    "subtitle": "Registration, OTP & protected dashboard",
+    "description": "A Next.js authentication frontend with registration, email verification, OTP login, and a protected dashboard, paired with a Node.js and Express backend.",
+    "longDescription": "A Next.js authentication frontend with registration, email verification, OTP login, and a protected dashboard, paired with a Node.js and Express backend.",
+    "role": "Personal project",
+    "impactMetrics": [
+      "Email verification & OTP login",
+      "Protected dashboard"
     ],
-    techStack: [
-      "React 19",
-      "React Native (Expo SDK 54)",
-      "TypeScript 5.9",
-      "Socket.IO 4.8",
-      "Node.js & Express 5",
-      "MongoDB & Mongoose 8",
-      "Zustand 5",
-      "Tailwind CSS & DaisyUI"
+    "techStack": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Node.js",
+      "Express.js",
+      "MongoDB"
     ],
-    architectureHighlights: [
-      "Unified Socket.IO v4.8 event relay engine for live presence, typing indicators, read receipts, and last seen pings",
-      "Multi-layer auth security combining bcryptjs password hashing, JWT HTTP-Only cookies, and Nodemailer 6-digit Email OTP validation",
-      "Expo Router SDK 54 universal file-based routing with Zustand state management & AsyncStorage session caching on Mobile",
-      "Conversational schema auto-grouping with unread message badges, latest message preview, and HTML5 emoji picker integration"
+    "architectureHighlights": [
+      "React Hook Form and Zod validate authentication forms.",
+      "JWT authentication and email OTP flows connect the frontend to the API."
     ],
-    liveUrl: "https://chatterbox-9aw1.onrender.com/",
-    githubUrl: "https://github.com/Abhi552000/ChatApp",
-    featured: true,
-    imageBg: "from-blue-950 via-cyan-900 to-teal-950"
+    "featured": true,
+    "imageBg": "from-emerald-950 via-teal-900 to-slate-950",
+    "liveUrl": "https://auth-front-end-lovat.vercel.app",
+    "githubUrl": "https://github.com/awais-sufi/auth-frontend"
+  },
+  {
+    "id": "native-concepts",
+    "title": "React Native Concepts",
+    "category": "personal",
+    "subtitle": "Mobile development learning project",
+    "description": "A React Native learning project exploring secure storage with platform keychain and keystore integrations.",
+    "longDescription": "A React Native learning project exploring secure storage with platform keychain and keystore integrations.",
+    "role": "Learning project",
+    "impactMetrics": [
+      "Secure storage exploration",
+      "Mobile development"
+    ],
+    "techStack": [
+      "React Native",
+      "TypeScript"
+    ],
+    "architectureHighlights": [
+      "Platform secure storage through React Native libraries."
+    ],
+    "featured": true,
+    "imageBg": "from-cyan-900 via-blue-950 to-slate-900",
+    "githubUrl": "https://github.com/awais-sufi/learn-native-concepts"
+  },
+  {
+    "id": "task-management",
+    "title": "Task Management",
+    "category": "personal",
+    "subtitle": "Course-based full-stack learning project",
+    "description": "A React task-management interface with authentication, task creation, search, filtering, and status tracking. Developed as learning work alongside a NestJS task-management backend.",
+    "longDescription": "A React task-management interface with authentication, task creation, search, filtering, and status tracking. Developed as learning work alongside a NestJS task-management backend.",
+    "role": "Course-based learning project",
+    "impactMetrics": [
+      "Task CRUD & filtering",
+      "Authenticated API integration"
+    ],
+    "techStack": [
+      "React",
+      "Tailwind CSS",
+      "Axios",
+      "NestJS",
+      "TypeORM"
+    ],
+    "architectureHighlights": [
+      "JWT authentication and protected routes.",
+      "Task CRUD, search, and status filtering."
+    ],
+    "featured": true,
+    "imageBg": "from-indigo-950 via-purple-900 to-slate-950",
+    "githubUrl": "https://github.com/awais-sufi/task-management-frontend"
   }
 ];
 
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
-    title: "Core Languages & Fundamentals",
-    iconName: "Code",
-    skills: [
-      { name: "TypeScript" },
-      { name: "JavaScript (ES6+)" },
-      { name: "HTML5 & CSS3" },
-      { name: "Node.js (ES Modules)" },
+    "title": "Languages & Frontend",
+    "iconName": "Code",
+    "skills": [
+      {
+        "name": "JavaScript (ES6+)"
+      },
+      {
+        "name": "TypeScript"
+      },
+      {
+        "name": "HTML5 & CSS3"
+      },
+      {
+        "name": "React"
+      },
+      {
+        "name": "Next.js"
+      },
+      {
+        "name": "React Native"
+      }
     ]
   },
   {
-    title: "Frameworks & State Management",
-    iconName: "Layers",
-    skills: [
-      { name: "ReactJS (18 & 19)" },
-      { name: "NextJS 14+ (App Router)" },
-      { name: "Redux Toolkit" },
-      { name: "Zustand" },
-      { name: "React Query (TanStack)" },
-      { name: "Tailwind CSS (3 & 4)" },
-      { name: "Material UI / Ant Design" }
+    "title": "UI & State Management",
+    "iconName": "Layers",
+    "skills": [
+      {
+        "name": "Tailwind CSS"
+      },
+      {
+        "name": "Redux / Redux Toolkit"
+      },
+      {
+        "name": "Responsive Web Design"
+      },
+      {
+        "name": "API Integration"
+      }
     ]
   },
   {
-    title: "Architecture & Monorepos",
-    iconName: "Cpu",
-    skills: [
-      { name: "Micro-Frontends (Module Federation)" },
-      { name: "Nx Monorepo" },
-      { name: "Turborepo & pnpm Workspaces" },
-      { name: "Component-Driven Design Systems" },
-      { name: "Webpack 5 & Vite 6" },
-      { name: "Performance Optimization (LCP < 2s)" }
+    "title": "Backend & Data",
+    "iconName": "Server",
+    "skills": [
+      {
+        "name": "Node.js"
+      },
+      {
+        "name": "NestJS"
+      },
+      {
+        "name": "Express.js"
+      },
+      {
+        "name": "REST APIs"
+      },
+      {
+        "name": "MongoDB"
+      },
+      {
+        "name": "PostgreSQL"
+      },
+      {
+        "name": "SQLite"
+      },
+      {
+        "name": "Supabase"
+      },
+      {
+        "name": "Payload CMS"
+      }
     ]
   },
   {
-    title: "Backend, Real-Time & Databases",
-    iconName: "Server",
-    skills: [
-      { name: "Express.js REST APIs" },
-      { name: "MongoDB & Mongoose ODM" },
-      { name: "Socket.IO (WebSockets)" },
-      { name: "Leaflet.js & Geolocation API" },
-      { name: "Git & GitHub Actions CI/CD" },
-      { name: "Stripe & Payment Gateways" },
-      { name: "Datadog RUM & Monitoring" }
+    "title": "Delivery & Collaboration",
+    "iconName": "Cpu",
+    "skills": [
+      {
+        "name": "Git / GitHub / GitLab"
+      },
+      {
+        "name": "Jira"
+      },
+      {
+        "name": "Agile / Scrum"
+      },
+      {
+        "name": "Postman"
+      },
+      {
+        "name": "Vercel"
+      },
+      {
+        "name": "CI/CD Basics"
+      }
     ]
   }
 ];
 
-export const MFE_MODULES_DEMO = [
-  { id: "shell", name: "Host Shell App", port: 3000, color: "border-cyan-500 bg-cyan-950/40", status: "Active Container" },
-  { id: "auth", name: "Remote Auth Module", port: 3001, color: "border-blue-500 bg-blue-950/40", status: "Federated Remote" },
-  { id: "dashboard", name: "Remote Analytics Engine", port: 3002, color: "border-purple-500 bg-purple-950/40", status: "Federated Remote" },
-  { id: "billing", name: "Remote Stripe Billing", port: 3003, color: "border-emerald-500 bg-emerald-950/40", status: "Federated Remote" },
+export const ARCHITECTURE_CASES = [
+  {
+    "id": "client",
+    "label": "Client delivery",
+    "title": "Responsive interfaces & managed content",
+    "summary": "Patterns used in the client projects documented in my resume.",
+    "pillars": [
+      {
+        "title": "Reusable UI",
+        "description": "Built 15+ reusable components for Zaz Mart to keep the storefront consistent."
+      },
+      {
+        "title": "Responsive layouts",
+        "description": "Designed product presentation and navigation for mobile, tablet, and desktop."
+      },
+      {
+        "title": "Content management",
+        "description": "Integrated Payload CMS for Asim Textile so the client can update products and company information."
+      }
+    ],
+    "nodes": [
+      "Next.js interfaces",
+      "Tailwind CSS components",
+      "Payload CMS content",
+      "PostgreSQL / SQLite"
+    ]
+  },
+  {
+    "id": "api",
+    "label": "Backend systems",
+    "title": "APIs, authentication & data",
+    "summary": "Backend work delivered across client and internal applications at Exeonic.",
+    "pillars": [
+      {
+        "title": "REST API integration",
+        "description": "Implemented 15+ endpoints supporting CRUD operations and client-server data flows."
+      },
+      {
+        "title": "Authentication",
+        "description": "Implemented JWT-based authentication flows for application access."
+      },
+      {
+        "title": "Database services",
+        "description": "Integrated Supabase and PostgreSQL across multiple projects."
+      }
+    ],
+    "nodes": [
+      "React / Next.js clients",
+      "Node.js / NestJS / Express.js",
+      "JWT authentication",
+      "Supabase / PostgreSQL"
+    ]
+  }
 ];
 
-export const MONOREPO_GRAPH_NODES = [
-  { id: "web-app", label: "apps/web-app", type: "app", desc: "Next.js 14 Main Customer Portal" },
-  { id: "admin-app", label: "apps/admin-dashboard", type: "app", desc: "React Administrative Control Center" },
-  { id: "ui-lib", label: "packages/ui", type: "pkg", desc: "Shared Tailwind Glass Component Library" },
-  { id: "hooks-lib", label: "packages/hooks", type: "pkg", desc: "Custom React Query & Socket Hooks" },
-  { id: "config-lib", label: "packages/config", type: "pkg", desc: "Shared ESLint, Prettier & TSConfigs" },
-];
+export const ASSISTANT_INTRO = `Hello! I am ${PERSONAL_INFO.name}'s portfolio assistant. Ask about the experience, projects, skills, or education documented here.`;
+export const ASSISTANT_PROMPTS = ["Tell me about Awais's experience", "What is his core stack?", "Tell me about Zaz Mart", "How can I contact Awais?"];

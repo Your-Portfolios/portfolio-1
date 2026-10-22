@@ -53,7 +53,7 @@ export const SkillsRadar: React.FC = () => {
             Core Technical <span className="text-gradient-cyan">Skillsets & Stack</span>
           </h2>
           <p className="text-gray-400 text-base sm:text-lg">
-            Engineering tools, programming languages, UI frameworks, architecture patterns, and backend engines built across 4+ years of software development.
+            The languages, frameworks, databases, and tools I use across web and mobile development.
           </p>
         </div>
 

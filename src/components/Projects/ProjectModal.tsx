@@ -57,7 +57,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           <div className="flex items-center justify-between p-3.5 sm:p-5 bg-slate-900/95 border-b border-slate-800 shrink-0 z-10 relative">
             <div className="flex items-center gap-2 min-w-0 pr-2">
               <span className="px-2 py-0.5 rounded-full bg-cyan-950 text-cyan-300 border border-cyan-500/40 text-[9px] sm:text-[10px] font-mono uppercase tracking-wider font-bold shrink-0">
-                {project.category === "personal" ? "Personal Showcase" : "Enterprise SaaS"}
+                {project.category === "personal" ? "Personal Showcase" : "Client Project"}
               </span>
               <h3 className="font-bold text-white text-xs sm:text-base tracking-tight truncate">
                 {project.title}
@@ -165,7 +165,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                   className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold text-xs shadow-md shadow-cyan-500/25 hover:scale-105 active:scale-95 transition-all cursor-pointer touch-manipulation"
                 >
                   <ExternalLink className="w-3.5 h-3.5" />
-                  <span>{project.id === "swift-security" ? "Concentric.ai" : "Live Platform"}</span>
+                  <span>{"Live Platform"}</span>
                 </a>
               )}
 
@@ -181,7 +181,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                 </a>
               ) : (
                 <span className="text-xs font-mono text-gray-500 italic hidden sm:inline">
-                  Enterprise Proprietary System
+                  Source link not provided
                 </span>
               )}
             </div>

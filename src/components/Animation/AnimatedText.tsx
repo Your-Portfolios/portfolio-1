@@ -10,12 +10,14 @@ interface AnimatedTextProps {
 
 export const AnimatedText: React.FC<AnimatedTextProps> = ({ text, className = "" }) => {
   const ref = React.useRef<HTMLSpanElement>(null);
-  const [visible, setVisible] = React.useState(
-    () => typeof window !== "undefined" && !("IntersectionObserver" in window)
-  );
+  const [visible, setVisible] = React.useState(false);
 
   React.useEffect(() => {
     if (visible) return;
+    if (!("IntersectionObserver" in window)) {
+      const frame = requestAnimationFrame(() => setVisible(true));
+      return () => cancelAnimationFrame(frame);
+    }
     const el = ref.current;
     if (!el) return;
     const obs = new IntersectionObserver(

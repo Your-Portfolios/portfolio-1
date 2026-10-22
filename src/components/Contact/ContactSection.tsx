@@ -15,10 +15,12 @@ import {
 } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/Icons/SocialIcons";
 import { PERSONAL_INFO } from "@/data/portfolioData";
+import { useHydrated } from "@/hooks/useHydrated";
 
 const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "";
 
 export const ContactSection: React.FC = () => {
+  const hydrated = useHydrated();
   const [copied, setCopied] = useState(false);
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
@@ -72,7 +74,7 @@ export const ContactSection: React.FC = () => {
 
       const result = await response.json();
 
-      if (result.success) {
+      if (response.ok && result.success) {
         setStatus("success");
         setFormData({ name: "", email: "", message: "", botcheck: false });
       } else {
@@ -135,6 +137,8 @@ export const ContactSection: React.FC = () => {
                 </button>
               </div>
 
+              <a href={`tel:${PERSONAL_INFO.phone.replace(/\s/g, "")}`} className="block text-sm font-mono text-cyan-300 hover:underline">{PERSONAL_INFO.phone}</a>
+
               {/* Location Card */}
               <div className="p-4 rounded-2xl bg-slate-900/90 border border-slate-800 flex items-center gap-3">
                 <div className="p-2.5 rounded-xl bg-cyan-950 border border-cyan-500/30 text-cyan-400 shrink-0">
@@ -142,7 +146,7 @@ export const ContactSection: React.FC = () => {
                 </div>
                 <div>
                   <span className="text-[10px] font-mono text-gray-400 uppercase tracking-wider block">Location</span>
-                  <span className="text-xs sm:text-sm font-bold text-white">{PERSONAL_INFO.location} (UTC+5:30)</span>
+                  <span className="text-xs sm:text-sm font-bold text-white">{PERSONAL_INFO.location} ({PERSONAL_INFO.timezone})</span>
                 </div>
               </div>
 
@@ -177,6 +181,7 @@ export const ContactSection: React.FC = () => {
           {/* Interactive Form */}
           <div className="lg:col-span-7">
             <div className="glass-panel p-6 sm:p-8 rounded-3xl border border-cyan-500/20 shadow-2xl relative">
+              {!WEB3FORMS_ACCESS_KEY && <p className="mb-5 text-sm text-amber-300" role="status">The contact form is not configured yet. Please <a className="underline" href={`mailto:${PERSONAL_INFO.email}`}>email me directly</a>.</p>}
               <AnimatePresence mode="wait">
                 {status === "success" ? (
                   <motion.div
@@ -192,7 +197,7 @@ export const ContactSection: React.FC = () => {
                     <div className="space-y-2">
                       <h3 className="text-2xl font-bold text-white tracking-tight">Message Transmitted!</h3>
                       <p className="text-sm text-gray-300 max-w-md mx-auto">
-                        Your inquiry was routed directly to Abhishek&apos;s inbox via Web3Forms. Expect a response shortly!
+                        Your inquiry was routed directly to Awais&apos;s inbox via Web3Forms. Expect a response shortly!
                       </p>
                     </div>
                     <button
@@ -225,7 +230,7 @@ export const ContactSection: React.FC = () => {
                       type="checkbox"
                       name="botcheck"
                       checked={formData.botcheck}
-                      onChange={(e) => setFormData({ ...formData, botcheck: e.target.checked })}
+                      onChange={(e) => setFormData(previous => ({ ...previous, botcheck: e.target.checked }))}
                       className="hidden"
                       style={{ display: "none" }}
                       tabIndex={-1}
@@ -258,25 +263,27 @@ export const ContactSection: React.FC = () => {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="space-y-1">
-                        <label className="text-xs font-mono text-gray-400">Your Name</label>
+                        <label htmlFor="contact-name" className="text-xs font-mono text-gray-400">Your Name</label>
                         <input
+                          id="contact-name"
                           type="text"
                           required
-                          disabled={status === "submitting"}
+                          disabled={!hydrated || status === "submitting"}
                           value={formData.name}
-                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                          onChange={(e) => setFormData(previous => ({ ...previous, name: e.target.value }))}
                           placeholder="e.g. Alex Morgan"
                           className="w-full px-4 py-2.5 rounded-xl bg-slate-900/90 border border-slate-800 text-white text-xs font-mono focus:outline-none focus:border-cyan-500 disabled:opacity-50 transition-colors"
                         />
                       </div>
                       <div className="space-y-1">
-                        <label className="text-xs font-mono text-gray-400">Your Email</label>
+                        <label htmlFor="contact-email" className="text-xs font-mono text-gray-400">Your Email</label>
                         <input
+                          id="contact-email"
                           type="email"
                           required
-                          disabled={status === "submitting"}
+                          disabled={!hydrated || status === "submitting"}
                           value={formData.email}
-                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                          onChange={(e) => setFormData(previous => ({ ...previous, email: e.target.value }))}
                           placeholder="alex@company.com"
                           className="w-full px-4 py-2.5 rounded-xl bg-slate-900/90 border border-slate-800 text-white text-xs font-mono focus:outline-none focus:border-cyan-500 disabled:opacity-50 transition-colors"
                         />
@@ -284,21 +291,22 @@ export const ContactSection: React.FC = () => {
                     </div>
 
                     <div className="space-y-1">
-                      <label className="text-xs font-mono text-gray-400">Project / Role Details</label>
+                      <label htmlFor="contact-message" className="text-xs font-mono text-gray-400">Project / Role Details</label>
                       <textarea
+                        id="contact-message"
                         required
                         rows={4}
-                        disabled={status === "submitting"}
+                        disabled={!hydrated || status === "submitting"}
                         value={formData.message}
-                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        placeholder="Discussing Software Developer opportunities, Node.js & React stack, or Monorepo Setup..."
+                        onChange={(e) => setFormData(previous => ({ ...previous, message: e.target.value }))}
+                        placeholder="Tell me about your project or software engineering role..."
                         className="w-full px-4 py-2.5 rounded-xl bg-slate-900/90 border border-slate-800 text-white text-xs font-mono focus:outline-none focus:border-cyan-500 disabled:opacity-50 transition-colors resize-none"
                       />
                     </div>
 
                     <button
                       type="submit"
-                      disabled={status === "submitting"}
+                      disabled={!hydrated || status === "submitting"}
                       className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-600 text-slate-950 font-bold text-sm shadow-lg shadow-cyan-500/25 hover:scale-[1.01] active:scale-[0.99] transition-all cursor-pointer shimmer-effect disabled:opacity-70 disabled:cursor-not-allowed"
                     >
                       {status === "submitting" ? (

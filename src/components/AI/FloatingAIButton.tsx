@@ -31,7 +31,7 @@ export const FloatingAIButton: React.FC<FloatingAIButtonProps> = ({ onOpenAI }) 
         transition: "opacity 0.4s ease, transform 0.4s ease",
       }}
       className="!fixed !bottom-6 !right-6 sm:!bottom-8 sm:!right-8 !left-auto !top-auto !z-[9999] flex items-center gap-3 px-5 py-3 rounded-full bg-slate-950/95 border border-cyan-500/60 text-white shadow-2xl shadow-cyan-500/50 backdrop-blur-2xl group hover:border-cyan-400 hover:scale-[1.08] hover:-translate-y-1 active:scale-95 transition-all cursor-pointer pulse-ring shimmer-effect"
-      title="Ask Abhishek AI Assistant"
+      title="Ask Awais AI Assistant"
     >
       <div className="relative w-10 h-10 rounded-full bg-gradient-to-br from-cyan-400 via-blue-600 to-indigo-600 flex items-center justify-center text-slate-950 shadow-md shadow-cyan-500/40 group-hover:scale-110 transition-transform shrink-0">
         <Bot className="w-5 h-5 text-slate-950" />
@@ -43,7 +43,7 @@ export const FloatingAIButton: React.FC<FloatingAIButtonProps> = ({ onOpenAI }) 
 
       <div className="flex flex-col items-start pr-1">
         <span className="text-xs font-extrabold text-white group-hover:text-cyan-300 transition-colors flex items-center gap-1">
-          Ask Abhishek AI
+          Ask Awais AI
           <Zap className="w-3.5 h-3.5 text-cyan-400 animate-pulse" />
         </span>
         <span className="text-[10px] font-mono text-cyan-400 font-bold tracking-wider uppercase">

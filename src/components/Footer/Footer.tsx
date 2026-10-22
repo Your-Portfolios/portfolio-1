@@ -21,7 +21,7 @@ export const Footer: React.FC = () => {
         {/* Center */}
         <div className="flex items-center gap-1.5 text-gray-400">
           <Code2 className="w-4 h-4 text-cyan-400" />
-          <span>Architected with Next.js 14, TypeScript & Framer Motion</span>
+          <span>Architected with Next.js 16, TypeScript & Framer Motion</span>
         </div>
 
         {/* Right - Back to Top */}

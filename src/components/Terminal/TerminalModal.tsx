@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Terminal as TerminalIcon, X, Send } from "lucide-react";
-import { PERSONAL_INFO, WORK_EXPERIENCES, PROJECTS } from "@/data/portfolioData";
+import { PERSONAL_INFO, WORK_EXPERIENCES, PROJECTS, SKILL_CATEGORIES, ARCHITECTURE_CASES } from "@/data/portfolioData";
 
 interface TerminalModalProps {
   isOpen: boolean;
@@ -27,7 +27,7 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({
       cmd: "welcome",
       output: (
         <div className="space-y-1 text-cyan-300">
-          <p className="font-bold text-sm">Abhishek Singh Dev CLI [Version 4.2.0]</p>
+          <p className="font-bold text-sm">{PERSONAL_INFO.name} Dev CLI</p>
           <p className="text-gray-400">Type <span className="text-cyan-400 font-bold">help</span> to list available commands or <span className="text-emerald-400 font-bold">sudo hire</span> to view hiring specs.</p>
         </div>
       ),
@@ -66,134 +66,40 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({
 
     switch (cleanCmd) {
       case "help":
-        outputNode = (
-          <div className="space-y-1 text-gray-300">
-            <p className="text-cyan-400 font-bold mb-1">Available CLI Commands:</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1 text-xs font-mono">
-              <div><span className="text-cyan-300">bio / summary</span> - View full developer bio</div>
-              <div><span className="text-cyan-300">skills</span> - List core technical skills</div>
-              <div><span className="text-cyan-300">experience</span> - View career history & impact</div>
-              <div><span className="text-cyan-300">projects</span> - View product & personal projects</div>
-              <div><span className="text-cyan-300">mfe</span> - Webpack Module Federation specs</div>
-              <div><span className="text-cyan-300">monorepo</span> - Nx & Turborepo architecture</div>
-              <div><span className="text-cyan-300">contact</span> - Get direct email & LinkedIn</div>
-              <div><span className="text-cyan-300">resume</span> - Open full viewable resume</div>
-              <div><span className="text-cyan-300">clear</span> - Clear terminal log history</div>
-              <div><span className="text-emerald-400 font-bold">sudo hire</span> - Executive hiring proposal</div>
-            </div>
-          </div>
-        );
+        outputNode = <p>Commands: bio, summary, skills, experience, projects, architecture, contact, resume, clear, sudo hire</p>;
         break;
-
       case "bio":
       case "summary":
-        outputNode = (
-          <div className="space-y-2 text-gray-200">
-            <p className="text-cyan-400 font-bold">{PERSONAL_INFO.name} — {PERSONAL_INFO.title}</p>
-            <p className="text-xs leading-relaxed">{PERSONAL_INFO.summary}</p>
-            <p className="text-xs text-gray-400">Education: {PERSONAL_INFO.education.degree} ({PERSONAL_INFO.education.cgpa})</p>
-          </div>
-        );
+        outputNode = <div className="space-y-2"><p>{PERSONAL_INFO.summary}</p><p>{PERSONAL_INFO.education.degree} - {PERSONAL_INFO.education.institution} ({PERSONAL_INFO.education.period})</p></div>;
         break;
-
       case "skills":
-        outputNode = (
-          <div className="space-y-2 text-gray-300 text-xs">
-            <p className="text-cyan-400 font-bold">Technical Matrix Snapshot:</p>
-            <p>• Core: JavaScript (ES6+), TypeScript, HTML5, CSS3, NodeJS</p>
-            <p>• Frameworks: ReactJS, NextJS 14+ (App Router), Redux Toolkit, Tailwind CSS, Material UI, Ant Design</p>
-            <p>• Architecture: Micro-Frontend (Webpack 5 Module Federation), Monorepo (Nx, Turborepo, pnpm Workspaces)</p>
-            <p>• Tools/APIs: Socket.IO, Highcharts, Stripe, REST APIs, Git/GitHub Actions</p>
-          </div>
-        );
+        outputNode = <div>{SKILL_CATEGORIES.map(category => <p key={category.title}>{category.title}: {category.skills.map(skill => skill.name).join(", ")}</p>)}</div>;
         break;
-
       case "experience":
-        outputNode = (
-          <div className="space-y-3 text-xs text-gray-300">
-            {WORK_EXPERIENCES.map((exp) => (
-              <div key={exp.id} className="border-l-2 border-cyan-500/50 pl-3 space-y-0.5">
-                <p className="text-cyan-300 font-bold">{exp.role} @ {exp.company} ({exp.period})</p>
-                <p className="text-gray-400">{exp.summary}</p>
-                <p className="text-emerald-400">Outcome: {exp.impactMetric}</p>
-              </div>
-            ))}
-          </div>
-        );
+        outputNode = <div>{WORK_EXPERIENCES.map(exp => <p key={exp.id}>{exp.role} at {exp.company} ({exp.period}): {exp.summary}</p>)}</div>;
         break;
-
       case "projects":
-        outputNode = (
-          <div className="space-y-2 text-xs text-gray-300">
-            <p className="text-cyan-400 font-bold">Showcase Projects:</p>
-            {PROJECTS.map((p) => (
-              <div key={p.id}>
-                <span className="text-cyan-300 font-bold">• {p.title}:</span> {p.subtitle} ({p.techStack.slice(0, 3).join(", ")})
-              </div>
-            ))}
-          </div>
-        );
+        outputNode = <div>{PROJECTS.map(project => <p key={project.id}>{project.title}: {project.description}</p>)}</div>;
         break;
-
+      case "architecture":
       case "mfe":
-        outputNode = (
-          <div className="space-y-1 text-xs text-cyan-200">
-            <p className="font-bold text-cyan-400">Webpack 5 Module Federation Architecture:</p>
-            <p>• Host Shell app dynamically mounts Remote Auth, Policy Engine, and Billing modules at runtime.</p>
-            <p>• Zero inter-team deployment blocking with singletons deduplicated across React & Redux slice trees.</p>
-          </div>
-        );
-        break;
-
       case "monorepo":
-        outputNode = (
-          <div className="space-y-1 text-xs text-indigo-200">
-            <p className="font-bold text-indigo-400">Nx & Turborepo Monorepo Architecture:</p>
-            <p>• Unified packages/ui component design system & packages/hooks across web & admin apps.</p>
-            <p>• Reduced code duplication by ~40% with 180ms remote cached build times.</p>
-          </div>
-        );
+        outputNode = <div>{ARCHITECTURE_CASES.map(study => <p key={study.id}>{study.title}: {study.pillars.map(pillar => pillar.description).join(" ")}</p>)}</div>;
         break;
-
+      case "sudo hire":
       case "contact":
-        outputNode = (
-          <div className="space-y-1 text-xs text-gray-300">
-            <p className="text-cyan-400 font-bold">Contact Details:</p>
-            <p>Email: <a href={`mailto:${PERSONAL_INFO.email}`} className="text-cyan-300 underline">{PERSONAL_INFO.email}</a></p>
-            <p>LinkedIn: <a href={PERSONAL_INFO.linkedin} target="_blank" rel="noreferrer" className="text-cyan-300 underline">{PERSONAL_INFO.linkedin}</a></p>
-            <p>Location: {PERSONAL_INFO.location}</p>
-          </div>
-        );
+        outputNode = <div><p>{PERSONAL_INFO.title}</p><a className="text-cyan-300 underline" href={`mailto:${PERSONAL_INFO.email}`}>{PERSONAL_INFO.email}</a><p>{PERSONAL_INFO.linkedin}</p></div>;
         break;
-
       case "resume":
         onOpenResume();
-        outputNode = <p className="text-emerald-400">Opening viewable resume modal...</p>;
+        outputNode = <p>Opening resume...</p>;
         break;
-
       case "clear":
         setHistory([]);
         setInputVal("");
         return;
-
-      case "sudo hire":
-        outputNode = (
-          <div className="p-3 rounded bg-emerald-950/60 border border-emerald-500/40 text-xs font-mono text-emerald-300 space-y-1.5">
-            <p className="font-bold text-sm">PROPOSAL CONFIRMED: HIRE ABHISHEK KUMAR SINGH</p>
-            <p>✔ 4+ Years React & Next.js Experience Verified.</p>
-            <p>✔ Micro-Frontend & Monorepo Optimization Ready.</p>
-            <p>✔ Sub-2s LCP Performance & Clean Architecture Guaranteed.</p>
-            <p className="text-cyan-300 font-bold mt-2">Direct Contact: abhisheksingh552000@gmail.com</p>
-          </div>
-        );
-        break;
-
       default:
-        outputNode = (
-          <p className="text-rose-400 text-xs">
-            Command not recognized: &quot;{cleanCmd}&quot;. Type <span className="text-cyan-400 underline">help</span> for available options.
-          </p>
-        );
+        outputNode = <p>Command not recognized. Type help for available commands.</p>;
     }
 
     setHistory((prev) => [...prev, { cmd: inputVal, output: outputNode }]);
@@ -240,7 +146,7 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({
               <div className="w-3 h-3 rounded-full bg-emerald-500" />
               <span className="ml-2 text-[11px] sm:text-xs font-mono text-cyan-400 flex items-center gap-1.5 font-bold truncate">
                 <TerminalIcon className="w-4 h-4 shrink-0" />
-                abhisheksingh@developer-terminal:~
+                awais@developer-terminal:~
               </span>
             </div>
             <button onClick={onClose} className="text-gray-400 hover:text-white p-1">
@@ -254,7 +160,7 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({
               <div key={idx} className="space-y-1">
                 {item.cmd !== "welcome" && (
                   <div className="flex items-center gap-2 text-gray-400">
-                    <span className="text-cyan-400 font-bold">abhisheksingh@portfolio:~$</span>
+                    <span className="text-cyan-400 font-bold">awais@portfolio:~$</span>
                     <span className="text-white font-bold">{item.cmd}</span>
                   </div>
                 )}
@@ -266,7 +172,7 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({
 
           {/* Input Bar */}
           <form onSubmit={handleCommand} className="p-3 bg-slate-900/90 border-t border-slate-800 flex items-center gap-2 font-mono text-xs">
-            <span className="text-cyan-400 font-bold shrink-0">abhisheksingh@portfolio:~$</span>
+            <span className="text-cyan-400 font-bold shrink-0">awais@portfolio:~$</span>
             <input
               ref={inputRef}
               type="text"

@@ -2,7 +2,7 @@
 
 import React, { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Download, FileText, ExternalLink, FileType } from "lucide-react";
+import { X, Download, FileText, ExternalLink } from "lucide-react";
 import confetti from "canvas-confetti";
 import { PERSONAL_INFO } from "@/data/portfolioData";
 
@@ -40,8 +40,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
     });
   };
 
-  const pdfUrl = PERSONAL_INFO.resumePdf || "/Abhishek-Kumar-Singh-Resume.pdf";
-  const docxUrl = PERSONAL_INFO.resumeDocx || "/Abhishek-Kumar-Singh-Resume.docx";
+  const pdfUrl = PERSONAL_INFO.resumePdf;
 
   return (
     <AnimatePresence>
@@ -74,7 +73,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
                   </span>
                 </h3>
                 <p className="text-[11px] text-gray-400 font-mono">
-                  Static PDF &amp; Word (.docx) formats
+                  PDF resume
                 </p>
               </div>
             </div>
@@ -84,25 +83,13 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
               {/* Download PDF */}
               <a
                 href={pdfUrl}
-                download="Abhishek-Kumar-Singh-Resume.pdf"
+                download="Awais_Ali_Software_Engineer_CV.pdf"
                 onClick={triggerConfetti}
                 className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold text-xs shadow-md shadow-cyan-500/20 hover:scale-105 active:scale-95 transition-all cursor-pointer"
                 title="Download static PDF Resume"
               >
                 <Download className="w-3.5 h-3.5" />
                 <span>PDF</span>
-              </a>
-
-              {/* Download Word (.docx) */}
-              <a
-                href={docxUrl}
-                download="Abhishek-Kumar-Singh-Resume.docx"
-                onClick={triggerConfetti}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-cyan-500/30 font-bold text-xs shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer font-mono"
-                title="Download static Word (.docx) Resume"
-              >
-                <FileType className="w-3.5 h-3.5 text-cyan-400" />
-                <span>Word (.docx)</span>
               </a>
 
               {/* Open in New Tab */}
@@ -138,7 +125,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
           <div className="flex items-center justify-between px-4 py-2 bg-slate-950/90 border-b border-slate-800/80 text-xs font-mono text-gray-400">
             <div className="flex items-center gap-2">
               <FileText className="w-3.5 h-3.5 text-cyan-400" />
-              <span>Curriculum Vitae • Kolkata, India</span>
+              <span>Curriculum Vitae | {PERSONAL_INFO.location}</span>
             </div>
             <div className="flex items-center gap-3">
               <a
@@ -157,7 +144,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
             <iframe
               src={`${pdfUrl}#toolbar=1&navpanes=0`}
               className="w-full h-full min-h-0 flex-1 border-0 bg-slate-900"
-              title="Abhishek Kumar Singh Resume PDF"
+              title={`${PERSONAL_INFO.name} Resume PDF`}
             />
 
             {/* Mobile / Fallback banner if PDF cannot render */}
@@ -176,18 +163,10 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
               <span className="text-white font-medium">Direct Links:</span>
               <a
                 href={pdfUrl}
-                download="Abhishek-Kumar-Singh-Resume.pdf"
+                download="Awais_Ali_Software_Engineer_CV.pdf"
                 className="text-cyan-400 hover:underline"
               >
-                Abhishek-Kumar-Singh-Resume.pdf
-              </a>
-              <span>•</span>
-              <a
-                href={docxUrl}
-                download="Abhishek-Kumar-Singh-Resume.docx"
-                className="text-cyan-400 hover:underline"
-              >
-                Abhishek-Kumar-Singh-Resume.docx
+                Awais_Ali_Software_Engineer_CV.pdf
               </a>
             </div>
             <div className="text-gray-500">

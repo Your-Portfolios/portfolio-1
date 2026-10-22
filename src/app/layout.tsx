@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { PERSONAL_INFO, SKILL_CATEGORIES } from "@/data/portfolioData";
+import { SITE_URL } from "@/data/siteConfig";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,46 +23,27 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Abhishek Kumar Singh | Software Developer",
-  description:
-    "Portfolio of Abhishek Kumar Singh — 4+ Years Experience Software Developer specializing in ReactJS, NextJS 14+, Node.js, Express, Webpack 5 Module Federation, Nx & Turborepo Monorepos, and TypeScript.",
-  keywords: [
-    "Abhishek Kumar Singh",
-    "Software Developer",
-    "Full-Stack Developer",
-    "Node.js",
-    "ReactJS",
-    "NextJS",
-    "Micro-Frontend",
-    "Module Federation",
-    "Monorepo",
-    "Nx",
-    "Turborepo",
-    "TypeScript",
-    "Kolkata Developer",
-  ],
-  authors: [{ name: "Abhishek Kumar Singh" }],
-  icons: {
-    icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/favicon.ico", sizes: "any" },
-    ],
-    apple: "/favicon.svg",
-  },
+  metadataBase: new URL(SITE_URL),
+  title: `${PERSONAL_INFO.name} | Full Stack Software Engineer`,
+  description: PERSONAL_INFO.summary,
+  keywords: [PERSONAL_INFO.name, "Full Stack Developer", ...SKILL_CATEGORIES.flatMap(category => category.skills.map(skill => skill.name))],
+  authors: [{ name: PERSONAL_INFO.name }],
+  alternates: { canonical: SITE_URL },
+  icons: { icon: [{ url: "/favicon.svg", type: "image/svg+xml" }, { url: "/favicon.ico", sizes: "any" }] },
   openGraph: {
-    title: "Abhishek Kumar Singh | Software Developer",
-    description:
-      "4+ Years Experience engineering scalable ReactJS, NextJS, Node.js, Micro-Frontend, and Monorepo web systems.",
-    url: "https://abhisheksingh.dev",
-    siteName: "Abhishek Kumar Singh Portfolio",
-    locale: "en_US",
+    title: `${PERSONAL_INFO.name} | Full Stack Software Engineer`,
+    description: PERSONAL_INFO.summary,
+    url: SITE_URL,
+    siteName: `${PERSONAL_INFO.name} Portfolio`,
+    locale: "en_PK",
     type: "website",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: `${PERSONAL_INFO.name} - Full Stack Software Engineer` }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Abhishek Kumar Singh | Software Developer",
-    description:
-      "4+ Years Experience engineering scalable ReactJS, NextJS, Node.js, Micro-Frontend, and Monorepo web systems.",
+    title: `${PERSONAL_INFO.name} | Full Stack Software Engineer`,
+    description: PERSONAL_INFO.summary,
+    images: ["/og-image.png"],
   },
 };
 

@@ -1,5 +1,6 @@
 "use client";
 
+import { ASSISTANT_PROMPTS } from "@/data/portfolioData";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Bot, Send, Compass } from "lucide-react";
@@ -11,13 +12,7 @@ interface AISearchHubSectionProps {
 export const AISearchHubSection: React.FC<AISearchHubSectionProps> = ({ onOpenAI }) => {
   const [aiPromptInput, setAiPromptInput] = useState("");
 
-  const quickPrompts = [
-    "Overview of Abhishek's 4+ years experience",
-    "How does his Micro-Frontend architecture work?",
-    "Tell me about SrisCart & ChatterBox",
-    "What is MoneyMax's dual-portal system?",
-    "Why hire Abhishek for Software Developer roles?",
-  ];
+  const quickPrompts = ASSISTANT_PROMPTS;
 
   return (
     <section id="ai-hub" className="py-24 sm:py-32 px-4 sm:px-8 max-w-5xl mx-auto w-full text-center scroll-mt-20">
@@ -35,10 +30,10 @@ export const AISearchHubSection: React.FC<AISearchHubSectionProps> = ({ onOpenAI
             <span>Interactive AI Intelligence Hub</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
-            Ask Abhishek AI Anything
+            Ask Awais AI Anything
           </h2>
           <p className="text-gray-400 text-sm sm:text-base max-w-xl mx-auto">
-            Get instant, tailored answers about Abhishek&apos;s 4+ years of software development experience, architecture patterns, and production accomplishments.
+            Get instant, tailored answers about Awais&apos;s 2+ years of software development experience, skills, client projects, and education.
           </p>
         </div>
 
@@ -47,7 +42,7 @@ export const AISearchHubSection: React.FC<AISearchHubSectionProps> = ({ onOpenAI
           <div className="flex items-center justify-between border-b border-slate-800/80 pb-3">
             <div className="flex items-center gap-2 text-xs sm:text-sm font-mono text-cyan-400">
               <Bot className="w-4 h-4 text-cyan-400 animate-pulse" />
-              <span>Ask Abhishek AI Assistant:</span>
+              <span>Ask Awais AI Assistant:</span>
             </div>
             <span className="text-[10px] font-mono text-cyan-300 px-2.5 py-0.5 rounded-full bg-cyan-950/80 border border-cyan-500/30 uppercase tracking-widest">
               AKS Intelligence Engine Active
@@ -68,7 +63,7 @@ export const AISearchHubSection: React.FC<AISearchHubSectionProps> = ({ onOpenAI
               type="text"
               value={aiPromptInput}
               onChange={(e) => setAiPromptInput(e.target.value)}
-              placeholder="e.g. How does Abhishek set up Webpack 5 Micro-Frontends?"
+              placeholder="e.g. What did Awais build for Zaz Mart?"
               className="flex-1 px-4 py-2 bg-transparent text-white text-xs sm:text-sm focus:outline-none placeholder-gray-500"
             />
             <button
